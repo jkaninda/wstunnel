@@ -98,8 +98,7 @@ func Config() *yamux.Config {
 	return cfg
 }
 
-// Client opens the stream-opening side of the session over ws (the control
-// plane): it OPENS streams (e.g. one per Docker request or job lease).
+// Client opens the stream-opening side of the session over ws.
 func Client(ws *websocket.Conn) (*yamux.Session, error) {
 	return yamux.Client(NewConn(ws), Config())
 }
